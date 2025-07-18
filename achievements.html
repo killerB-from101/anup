@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Achievements - Anup Barman</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body class="text-slate-100 bg-gradient-to-br from-[#181f2a] via-[#232946] to-[#181f2a] min-h-screen">
+  <!-- Navbar -->
+  <header class="bg-[#181f2a]/90 backdrop-blur-lg sticky top-0 z-50 shadow-lg border-b border-[#232946]/60">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-cyan-200">Anup Barman</a>
+      <div class="hidden md:flex space-x-8 items-center">
+        <a href="index.html" class="text-cyan-200 hover:text-cyan-400 transition-colors">Home</a>
+        <a href="index.html#about" class="text-cyan-200 hover:text-cyan-400 transition-colors">About</a>
+        <a href="achievements.html"
+          class="text-cyan-200 hover:text-yellow-400 transition-colors font-bold border-b-2 border-yellow-400">Achievements</a>
+        <a href="index.html#contact" class="text-cyan-200 hover:text-pink-400 transition-colors">Contact</a>
+        <a href="gallery.html" class="text-pink-300 hover:text-pink-400 transition-colors">Gallery</a>
+      </div>
+      <button id="mobile-menu-button" class="md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+      <a href="index.html" class="block py-2 text-cyan-200 hover:text-cyan-400">Home</a>
+      <a href="index.html#about" class="block py-2 text-cyan-200 hover:text-cyan-400">About</a>
+      <a href="achievements.html"
+        class="block py-2 text-cyan-200 hover:text-yellow-400 font-bold border-b-2 border-yellow-400">Achievements</a>
+      <a href="index.html#contact" class="block py-2 text-cyan-200 hover:text-pink-400">Contact</a>
+      <a href="gallery.html" class="block py-2 text-pink-300 hover:text-pink-400">Gallery</a>
+    </div>
+  </header>
+  <main class="container mx-auto px-6">
+    <section class="py-16 md:py-20">
+      <h2 class="text-4xl font-extrabold text-center text-[#e0e7ef] mb-12 tracking-tight">Competitive Programming
+        Achievements</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Codeforces -->
+        <div
+          class="rounded-2xl shadow-xl border border-cyan-400/30 bg-[#232946]/70 backdrop-blur-lg p-8 flex flex-col items-center">
+          <img src="Images/Logos/codeforces.png" class="w-16 h-16 mb-4" alt="Codeforces Logo" />
+          <h3 class="text-2xl font-bold text-cyan-300 mb-2 flex items-center gap-2">Codeforces
+            <a href="https://codeforces.com/profile/khun_" target="_blank" rel="noopener" title="Codeforces Profile">
+              <svg class="inline w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M14 5l7 7-7 7M5 12h16" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </h3>
+          <p class="text-lg text-cyan-100">Current Rank: <span id="cf-rank"
+              class="font-semibold text-blue-400">Loading...</span></p>
+          <p class="text-base text-cyan-100">Best: <span id="cf-best">Loading...</span></p>
+          <canvas id="cfChart" class="mt-4" height="120"></canvas>
+        </div>
+        <!-- AtCoder -->
+        <div
+          class="rounded-2xl shadow-xl border border-green-400/30 bg-[#232946]/70 backdrop-blur-lg p-8 flex flex-col items-center">
+          <img src="Images/Logos/atcoder.png" class="w-16 h-16 mb-4" alt="AtCoder Logo" />
+          <h3 class="text-2xl font-bold text-green-300 mb-2 flex items-center gap-2">AtCoder
+            <a href="https://atcoder.jp/users/bee_" target="_blank" rel="noopener" title="AtCoder Profile">
+              <svg class="inline w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M14 5l7 7-7 7M5 12h16" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </h3>
+          <p class="text-lg text-green-100">Current Rank: <span id="ac-rank"
+              class="font-semibold text-green-400">Loading...</span></p>
+          <p class="text-base text-green-100">Best: <span id="ac-best">Loading...</span></p>
+          <canvas id="acChart" class="mt-4" height="120"></canvas>
+        </div>
+        <!-- CodeChef -->
+        <div
+          class="rounded-2xl shadow-xl border border-yellow-400/30 bg-[#232946]/70 backdrop-blur-lg p-8 flex flex-col items-center">
+          <img src="Images/Logos/codechef.png" class="w-16 h-16 mb-4" alt="CodeChef Logo" />
+          <h3 class="text-2xl font-bold text-yellow-300 mb-2 flex items-center gap-2">CodeChef
+            <a href="https://www.codechef.com/users/anup101" target="_blank" rel="noopener" title="CodeChef Profile">
+              <svg class="inline w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M14 5l7 7-7 7M5 12h16" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </h3>
+          <p class="text-lg text-yellow-100">Current Rank: <span id="cc-rank"
+              class="font-semibold text-yellow-400">Loading...</span></p>
+          <p class="text-base text-yellow-100">Best: <span id="cc-best">Loading...</span></p>
+          <canvas id="ccChart" class="mt-4" height="120"></canvas>
+        </div>
+      </div>
+      <!-- Highlights Section -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          class="bg-[#232946]/60 rounded-2xl p-8 shadow-lg border border-cyan-400/20 backdrop-blur-md flex flex-col justify-center">
+          <h4 class="text-cyan-200 text-xl font-bold mb-4 text-center">Highlights</h4>
+          <ul class="list-disc list-inside text-cyan-100 text-lg space-y-2 mx-auto text-left max-w-md">
+            <li>ICPC Dhaka Regionalist 2024</li>
+            <li>Top 10% in AtCoder Beginner Contests</li>
+            <li>Top 5% in CodeChef Starters</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ICPC Experience Full Section -->
+      <section class="mt-16">
+        <div
+          class="bg-[#232946]/60 rounded-2xl p-8 shadow-lg border border-yellow-400/20 flex flex-col items-center justify-center backdrop-blur-md">
+          <div class="w-full aspect-video rounded-xl overflow-hidden mb-6">
+            <img src="Images/background2.jpg" alt="ICPC Experience" class="w-full h-full object-cover brightness-75" />
+          </div>
+          <h4 class="text-yellow-200 text-2xl font-bold mb-3 text-center">ICPC Experience</h4>
+          <p class="text-yellow-100 text-lg text-center max-w-2xl">Represented my university at the ICPC Dhaka Regional
+            2024. Collaborated with a talented team, solved challenging problems under pressure, and gained invaluable
+            experience in competitive programming at an international level.</p>
+        </div>
+      </section>
+
+      <!-- Problem Setter Experience Section -->
+      <section class="mt-16">
+        <div
+          class="bg-[#232946]/60 rounded-2xl p-8 shadow-lg border border-yellow-400/20 flex flex-col items-center justify-center backdrop-blur-md">
+          <div class="w-full aspect-video rounded-xl overflow-hidden mb-6">
+            <img src="Images/takeoff_uta_celebration.jpg" alt="Takeoff UTA Celebration"
+              class="w-full h-full object-cover brightness-75" />
+          </div>
+          <h4 class="text-yellow-200 text-2xl font-bold mb-3 text-center">Problem Setter Experience</h4>
+          <p class="text-yellow-100 text-lg text-center max-w-2xl">I have contributed as a problem setter for my
+            university's flagship programming contests, "Takeoff" and "Unlock the Algorithm." My focus is on creating
+            educational, challenging, and fun problems that help students grow as programmers. The contests have seen
+            enthusiastic participation and have become a highlight of our university's programming culture.</p>
+        </div>
+      </section>
+    </section>
+    <footer
+      class="bg-gradient-to-r from-blue-900 via-slate-800 to-pink-900 text-slate-200 py-6 text-center shadow-xl mt-12 rounded-2xl">
+      <p>&copy; 2025 Anup Barman. All Rights Reserved.</p>
+      <p>Built with <span class="text-red-500">&hearts;</span> and Tailwind CSS.</p>
+    </footer>
+  </main>
+  <script>
+    // Fetch and display Codeforces data
+    async function fetchCodeforces() {
+      try {
+        const resp = await fetch('https://codeforces.com/api/user.info?handles=khun_');
+        const data = await resp.json();
+        const user = data.result[0];
+        document.getElementById('cf-rank').textContent = user.rank.charAt(0).toUpperCase() + user.rank.slice(1);
+        document.getElementById('cf-best').textContent = user.maxRating + ' (' + user.maxRank.charAt(0).toUpperCase() + user.maxRank.slice(1) + ')';
+        // Fetch rating history for graph
+        const histResp = await fetch('https://codeforces.com/api/user.rating?handle=khun_');
+        const histData = await histResp.json();
+        const labels = histData.result.map(e => e.ratingUpdateTimeSeconds ? new Date(e.ratingUpdateTimeSeconds * 1000).toLocaleDateString() : '');
+        const ratings = histData.result.map(e => e.newRating);
+        if (window.cfChartObj) window.cfChartObj.destroy();
+        window.cfChartObj = new Chart(document.getElementById('cfChart').getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Rating',
+              data: ratings,
+              borderColor: '#38bdf8',
+              backgroundColor: 'rgba(56,189,248,0.1)',
+              tension: 0.4,
+              fill: true,
+            }],
+          },
+          options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false } } },
+        });
+      } catch (e) {
+        // fallback static data
+        document.getElementById('cf-rank').textContent = 'Candidate Master';
+        document.getElementById('cf-best').textContent = '2012 (Candidate Master)';
+        if (window.cfChartObj) window.cfChartObj.destroy();
+        window.cfChartObj = new Chart(document.getElementById('cfChart').getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: ['2022-01', '2022-06', '2022-12', '2023-06', '2023-12', '2024-06', '2024-12'],
+            datasets: [{
+              label: 'Rating',
+              data: [1200, 1450, 1600, 1750, 1900, 2000, 2012],
+              borderColor: '#38bdf8',
+              backgroundColor: 'rgba(56,189,248,0.1)',
+              tension: 0.4,
+              fill: true,
+            }],
+          },
+          options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false } } },
+        });
+      }
+    }
+    // Fetch and display AtCoder data
+    async function fetchAtCoder() {
+      try {
+        const resp = await fetch('https://kenkoooo.com/atcoder/atcoder-api/v3/user_info?user=bee_');
+        const data = await resp.json();
+        // Show 8-kyu as rank
+        let rank = '8-kyu';
+        if (data.rating) rank += ` (${data.rating})`;
+        document.getElementById('ac-rank').textContent = rank;
+        document.getElementById('ac-best').textContent = (data.highest_rating ? data.highest_rating : 'N/A') + (data.contest_count ? ` (${data.contest_count} contests)` : '');
+        // Fetch rating history
+        const histResp = await fetch('https://kenkoooo.com/atcoder/atcoder-api/v3/user_rating?user=bee_');
+        const histData = await histResp.json();
+        const labels = histData.map(e => e.EndTime ? e.EndTime.split('T')[0] : (e.Date ? e.Date : ''));
+        const ratings = histData.map(e => e.NewRating !== undefined ? e.NewRating : (e.Rating !== undefined ? e.Rating : null)).filter(x => x !== null);
+        if (window.acChartObj) window.acChartObj.destroy();
+        window.acChartObj = new Chart(document.getElementById('acChart').getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Rating',
+              data: ratings,
+              borderColor: '#22c55e',
+              backgroundColor: 'rgba(34,197,94,0.1)',
+              tension: 0.4,
+              fill: true,
+            }],
+          },
+          options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false } } },
+        });
+      } catch (e) {
+        // fallback static data
+        document.getElementById('ac-rank').textContent = '8-kyu (450)';
+        document.getElementById('ac-best').textContent = '450 (27 contests)';
+        if (window.acChartObj) window.acChartObj.destroy();
+        window.acChartObj = new Chart(document.getElementById('acChart').getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: ['2022-01', '2022-06', '2022-12', '2023-06', '2023-12', '2024-06', '2024-12'],
+            datasets: [{
+              label: 'Rating',
+              data: [100, 150, 200, 250, 300, 400, 450],
+              borderColor: '#22c55e',
+              backgroundColor: 'rgba(34,197,94,0.1)',
+              tension: 0.4,
+              fill: true,
+            }],
+          },
+          options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false } } },
+        });
+      }
+    }
+    // Fetch and display CodeChef data
+    async function fetchCodeChef() {
+      try {
+        const resp = await fetch('https://all-coders.herokuapp.com/api/codechef/anup101');
+        const data = await resp.json();
+        document.getElementById('cc-rank').textContent = data.stars ? data.stars + ' Star' : 'N/A';
+        document.getElementById('cc-best').textContent = data.highest_rating ? data.highest_rating + ' (' + data.highest_rank + ')' : 'N/A';
+        // Pie chart for solved/attempted/unsolved
+        if (window.ccChartObj) window.ccChartObj.destroy();
+        window.ccChartObj = new Chart(document.getElementById('ccChart').getContext('2d'), {
+          type: 'doughnut',
+          data: {
+            labels: ['Solved', 'Attempted', 'Unsolved'],
+            datasets: [{
+              data: [data.fully_solved_count || 0, data.partially_solved_count || 0, (data.total_problems || 0) - (data.fully_solved_count || 0) - (data.partially_solved_count || 0)],
+              backgroundColor: ['#facc15', '#60a5fa', '#f472b6'],
+            }],
+          },
+          options: { responsive: true, plugins: { legend: { position: 'bottom' } } },
+        });
+      } catch (e) {
+        // fallback static data
+        document.getElementById('cc-rank').textContent = '2 Star';
+        document.getElementById('cc-best').textContent = '1587 (31 contests)';
+        if (window.ccChartObj) window.ccChartObj.destroy();
+        window.ccChartObj = new Chart(document.getElementById('ccChart').getContext('2d'), {
+          type: 'doughnut',
+          data: {
+            labels: ['Solved', 'Attempted', 'Unsolved'],
+            datasets: [{
+              data: [120, 20, 5],
+              backgroundColor: ['#facc15', '#60a5fa', '#f472b6'],
+            }],
+          },
+          options: { responsive: true, plugins: { legend: { position: 'bottom' } } },
+        });
+      }
+    }
+    fetchCodeforces();
+    fetchAtCoder();
+    fetchCodeChef();
+  </script>
+</body>
+
+</html>

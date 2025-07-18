@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anup Barman - Competitive Programmer</title>
+  <meta name="description"
+    content="Portfolio of Anup Barman, a competitive programmer and Computer Science student at Daffodil International University." />
+  <meta name="keywords"
+    content="Competitive Programming, Portfolio, Anup Barman, Coder, Developer, Problem Solver, ICPC, Codeforces, AtCoder, CodeChef" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <style>
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes slide-in {
+      0% {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes pop-in {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      80% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse-slow {
+
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 1s cubic-bezier(0.4, 2, 0.6, 1) both;
+    }
+
+    .animate-slide-in {
+      animation: slide-in 1.2s cubic-bezier(0.4, 2, 0.6, 1) both;
+    }
+
+    .animate-pop-in {
+      animation: pop-in 0.9s cubic-bezier(0.4, 2, 0.6, 1) both;
+    }
+
+    .animate-pulse-slow {
+      animation: pulse-slow 4s ease-in-out infinite;
+    }
+
+    .delay-100 {
+      animation-delay: 0.1s !important;
+    }
+
+    .delay-200 {
+      animation-delay: 0.2s !important;
+    }
+
+    .delay-300 {
+      animation-delay: 0.3s !important;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="text-slate-100 bg-gradient-to-br from-[#181f2a] via-[#232946] to-[#181f2a] min-h-screen">
+  <!-- Header & Navigation -->
+  <header class="bg-[#181f2a]/90 backdrop-blur-lg sticky top-0 z-50 shadow-lg border-b border-[#232946]/60">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-cyan-200">Anup Barman</a>
+      <div class="hidden md:flex space-x-8 items-center">
+        <a href="index.html" class="text-cyan-200 hover:text-cyan-400 transition-colors">Home</a>
+        <a href="#about" class="text-cyan-200 hover:text-cyan-400 transition-colors">About</a>
+        <a href="achievements.html" class="text-cyan-200 hover:text-yellow-400 transition-colors">Achievements</a>
+        <a href="#contact" class="text-cyan-200 hover:text-pink-400 transition-colors">Contact</a>
+        <a href="gallery.html" class="text-pink-300 hover:text-pink-400 transition-colors">Gallery</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+          </path>
+        </svg>
+      </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+      <a href="index.html" class="block py-2 text-cyan-200 hover:text-cyan-400">Home</a>
+      <a href="#about" class="block py-2 text-cyan-200 hover:text-cyan-400">About</a>
+      <a href="achievements.html" class="block py-2 text-cyan-200 hover:text-yellow-400">Achievements</a>
+      <a href="#contact" class="block py-2 text-cyan-200 hover:text-pink-400">Contact</a>
+      <a href="gallery.html" class="block py-2 text-pink-300 hover:text-pink-400">Gallery</a>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6">
+    <!-- Minimal Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <img src="Images/background1.jpg" alt="Background"
+        class="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none z-0" />
+      <div
+        class="relative z-10 flex flex-col md:flex-row items-center justify-between px-4 py-12 md:py-24 gap-8 w-full">
+        <div class="flex-1 flex flex-col items-center md:items-start text-left">
+          <h1
+            class="text-5xl md:text-7xl font-extrabold mb-6 animate-slide-in drop-shadow-lg bg-gradient-to-r from-yellow-200 via-pink-200 to-cyan-200 bg-clip-text text-transparent"
+            style="font-family: 'Oswald', 'Inter', Arial, sans-serif; letter-spacing:0.01em;">
+            Anup <span>Barman</span>
+          </h1>
+          <p id="typed-text"
+            class="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-in delay-200 drop-shadow h-14 tracking-wide bg-gradient-to-r from-yellow-100 via-pink-200 to-cyan-100 bg-clip-text text-transparent"
+            style="font-family: 'Oswald', 'Inter', Arial, sans-serif; letter-spacing:0.01em;"></p>
+          <script type="module">
+            const sentences = [
+              "Competitive Programmer",
+              "Pupil in Codeforces",
+              "2 Star in Codechef",
+              "8-Kyu in AtCoder",
+              "ICPC Dhaka Regionalist"
+            ];
+            const typedText = document.getElementById("typed-text");
+            const typingSpeed = 45;
+            const erasingSpeed = 25;
+            const delayBetween = 3000;
+            let sentenceIndex = 0;
+            let charIndex = 0;
+            let isErasing = false;
+            function type() {
+              if (!typedText) return;
+              const current = sentences[sentenceIndex];
+              if (!isErasing) {
+                typedText.innerHTML = `<span style="font-size:2.5rem;font-weight:800;font-family:'Oswald','Inter',Arial,sans-serif;letter-spacing:0.01em;color:#ffe066;">${current.substring(0, charIndex + 1)}</span><span class='text-yellow-200' style="font-size:2.5rem;font-weight:800;font-family:'Oswald','Inter',Arial,sans-serif;letter-spacing:0.01em;">|</span>`;
+                if (charIndex < current.length) {
+                  charIndex++;
+                  setTimeout(type, typingSpeed);
+                } else {
+                  isErasing = true;
+                  setTimeout(type, delayBetween);
+                }
+              } else {
+                typedText.innerHTML = `<span style="font-size:2.5rem;font-weight:800;font-family:'Oswald','Inter',Arial,sans-serif;letter-spacing:0.01em;color:#ffe066;">${current.substring(0, charIndex - 1)}</span><span class='text-yellow-200' style="font-size:2.5rem;font-weight:800;font-family:'Oswald','Inter',Arial,sans-serif;letter-spacing:0.01em;">|</span>`;
+                if (charIndex > 0) {
+                  charIndex--;
+                  setTimeout(type, erasingSpeed);
+                } else {
+                  isErasing = false;
+                  sentenceIndex = (sentenceIndex + 1) % sentences.length;
+                  setTimeout(type, 400);
+                }
+              }
+            }
+            type();
+          </script>
+        </div>
+      </div>
+    </section>
+    <!-- About Me Section -->
+    <section id="about"
+      class="py-20 bg-gradient-to-br from-[#232946] to-[#181f2a] rounded-2xl shadow-xl my-8 border border-[#232946]/60">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 p-8 md:p-12">
+        <div class="flex-1 flex flex-col justify-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-cyan-200 mb-4">About Me</h2>
+          <p class="text-lg text-cyan-100 leading-relaxed mb-4">I'm Anup Barman, a passionate competitive programmer and
+            a Computer Science and Engineering student at Daffodil International University. My journey in programming
+            began with
+            curiosity and quickly grew into a deep passion for solving challenging problems and building a strong
+            foundation in algorithms and data structures.</p>
+          <p class="text-lg text-cyan-100 leading-relaxed mb-4">I have represented my university as an <span
+              class="font-bold text-yellow-200">ICPC Dhaka Regionalist 2024</span>, and have been a problem setter for
+            flagship contests like <span class="font-bold text-pink-200">Takeoff</span> and <span
+              class="font-bold text-pink-200">Unlock the Algorithm</span>. I love sharing knowledge and helping others
+            grow in the programming community.</p>
+          <p class="text-lg text-cyan-100 leading-relaxed">Beyond coding, I enjoy exploring new technologies,
+            collaborating on projects, and capturing memories from my competitive programming journey. My goal is to
+            keep learning, growing, and contributing to the tech world.</p>
+        </div>
+        <div class="flex-1 flex justify-center md:justify-end">
+          <img src="Images/pfp.jpg" alt="Profile"
+            class="w-80 h-96 object-cover rounded-2xl shadow-2xl border-4 border-cyan-200 bg-[#232946]/80" />
+        </div>
+      </div>
+    </section>
+    <!-- Contact Me Section -->
+    <section id="contact"
+      class="py-20 bg-gradient-to-br from-[#181f2a] to-[#232946] rounded-2xl shadow-xl my-8 border border-[#232946]/60">
+      <div class="max-w-2xl mx-auto text-center p-8 md:p-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-cyan-200 mb-4">Contact Me</h2>
+        <p class="text-lg text-cyan-100 mb-8">I'm always open to discussing new opportunities, interesting problems, or
+          just connecting with fellow tech enthusiasts. Feel free to reach out!</p>
+        <a href="mailto:anup.barman.cs@example.com"
+          class="btn-primary text-lg font-semibold px-8 py-4 bg-cyan-900/80 hover:bg-cyan-900 text-cyan-100 border border-cyan-300/30">anup.barman.cs@example.com</a>
+        <div class="flex justify-center space-x-6 mt-8">
+          <a href="https://github.com/khun-dev" class="text-cyan-300 hover:text-cyan-400" target="_blank" rel="noopener"
+            title="GitHub"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.425 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.852 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" />
+            </svg></a>
+          <a href="mailto:anup.barman.cs@example.com" class="text-cyan-300 hover:text-cyan-400" title="Email"><svg
+              class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M2.01 4.857A2 2 0 014 4h16a2 2 0 011.99 0.857L12 13.414 2.01 4.857zM2 6.697V18a2 2 0 002 2h16a2 2 0 002-2V6.697l-8 7.2-8-7.2z" />
+            </svg></a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 4. Projects Section -->
+
+    <!-- 5. Skills Section -->
+
+    <!-- 6. Blog Section -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-blue-900 via-slate-800 to-pink-900 text-slate-200 py-6 text-center shadow-xl">
+    <p>&copy; 2025 Anup Barman. All Rights Reserved.</p>
+    <p>
+      Built with <span class="text-red-500">&hearts;</span> and Tailwind CSS.
+    </p>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    // Wait for the DOM to be fully loaded before running the script
+    document.addEventListener("DOMContentLoaded", function () {
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      // Check if the elements exist before adding event listeners
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        const navLinks = mobileMenu.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            // Ensure the menu is hidden when a link is clicked
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
