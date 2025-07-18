@@ -11,19 +11,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .nav-active {
+      color: #22d3ee !important;
+      /* cyan-400 */
+    }
+
+    .nav-link {
+      transition: color 0.2s;
+    }
+  </style>
 </head>
 
 <body class="text-slate-100 bg-gradient-to-br from-[#181f2a] via-[#232946] to-[#181f2a] min-h-screen">
   <!-- Navbar -->
-  <header class="bg-[#181f2a]/90 backdrop-blur-lg sticky top-0 z-50 shadow-lg border-b border-[#232946]/60">
+  <header class="bg-[#181f2a]/90 backdrop-blur-lg sticky top-0 z-50 shadow-lg border-b border-cyan-400/60">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="index.html" class="text-2xl font-bold text-cyan-200">Anup Barman</a>
       <div class="hidden md:flex space-x-8 items-center">
         <a href="index.html" class="text-cyan-200 hover:text-cyan-400 transition-colors">Home</a>
         <a href="index.html#about" class="text-cyan-200 hover:text-cyan-400 transition-colors">About</a>
-        <a href="achievements.html"
-          class="text-cyan-200 hover:text-yellow-400 transition-colors font-bold border-b-2 border-yellow-400">Achievements</a>
         <a href="index.html#contact" class="text-cyan-200 hover:text-pink-400 transition-colors">Contact</a>
+        <a href="achievements.html"
+          class="text-cyan-200 hover:text-yellow-400 transition-colors font-bold nav-active">Achievements</a>
         <a href="gallery.html" class="text-pink-300 hover:text-pink-400 transition-colors">Gallery</a>
       </div>
       <button id="mobile-menu-button" class="md:hidden">
@@ -36,9 +46,9 @@
     <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
       <a href="index.html" class="block py-2 text-cyan-200 hover:text-cyan-400">Home</a>
       <a href="index.html#about" class="block py-2 text-cyan-200 hover:text-cyan-400">About</a>
-      <a href="achievements.html"
-        class="block py-2 text-cyan-200 hover:text-yellow-400 font-bold border-b-2 border-yellow-400">Achievements</a>
       <a href="index.html#contact" class="block py-2 text-cyan-200 hover:text-pink-400">Contact</a>
+      <a href="achievements.html"
+        class="block py-2 text-cyan-200 hover:text-yellow-400 font-bold nav-active">Achievements</a>
       <a href="gallery.html" class="block py-2 text-pink-300 hover:text-pink-400">Gallery</a>
     </div>
   </header>
@@ -51,12 +61,9 @@
         <div
           class="rounded-2xl shadow-xl border border-cyan-400/30 bg-[#232946]/70 backdrop-blur-lg p-8 flex flex-col items-center">
           <img src="Images/Logos/codeforces.png" class="w-16 h-16 mb-4" alt="Codeforces Logo" />
-          <h3 class="text-2xl font-bold text-cyan-300 mb-2 flex items-center gap-2">Codeforces
-            <a href="https://codeforces.com/profile/khun_" target="_blank" rel="noopener" title="Codeforces Profile">
-              <svg class="inline w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M14 5l7 7-7 7M5 12h16" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </a>
+          <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">
+            <a href="https://codeforces.com/profile/khun_" target="_blank" rel="noopener" title="Codeforces Profile"
+              class="text-cyan-300 hover:underline">Codeforces</a>
           </h3>
           <p class="text-lg text-cyan-100">Current Rank: <span id="cf-rank"
               class="font-semibold text-blue-400">Loading...</span></p>
@@ -67,12 +74,9 @@
         <div
           class="rounded-2xl shadow-xl border border-green-400/30 bg-[#232946]/70 backdrop-blur-lg p-8 flex flex-col items-center">
           <img src="Images/Logos/atcoder.png" class="w-16 h-16 mb-4" alt="AtCoder Logo" />
-          <h3 class="text-2xl font-bold text-green-300 mb-2 flex items-center gap-2">AtCoder
-            <a href="https://atcoder.jp/users/bee_" target="_blank" rel="noopener" title="AtCoder Profile">
-              <svg class="inline w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M14 5l7 7-7 7M5 12h16" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </a>
+          <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">
+            <a href="https://atcoder.jp/users/bee_" target="_blank" rel="noopener" title="AtCoder Profile"
+              class="text-green-300 hover:underline">AtCoder</a>
           </h3>
           <p class="text-lg text-green-100">Current Rank: <span id="ac-rank"
               class="font-semibold text-green-400">Loading...</span></p>
@@ -83,12 +87,9 @@
         <div
           class="rounded-2xl shadow-xl border border-yellow-400/30 bg-[#232946]/70 backdrop-blur-lg p-8 flex flex-col items-center">
           <img src="Images/Logos/codechef.png" class="w-16 h-16 mb-4" alt="CodeChef Logo" />
-          <h3 class="text-2xl font-bold text-yellow-300 mb-2 flex items-center gap-2">CodeChef
-            <a href="https://www.codechef.com/users/anup101" target="_blank" rel="noopener" title="CodeChef Profile">
-              <svg class="inline w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M14 5l7 7-7 7M5 12h16" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </a>
+          <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">
+            <a href="https://www.codechef.com/users/anup101" target="_blank" rel="noopener" title="CodeChef Profile"
+              class="text-yellow-300 hover:underline">CodeChef</a>
           </h3>
           <p class="text-lg text-yellow-100">Current Rank: <span id="cc-rank"
               class="font-semibold text-yellow-400">Loading...</span></p>
@@ -106,6 +107,25 @@
             <li>Top 10% in AtCoder Beginner Contests</li>
             <li>Top 5% in CodeChef Starters</li>
           </ul>
+        </div>
+        <div
+          class="bg-[#232946]/60 rounded-2xl p-8 shadow-lg border border-green-400/20 backdrop-blur-md flex flex-col justify-center">
+          <h4 class="text-green-200 text-xl font-bold mb-4 text-center">Skills</h4>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">C++</span>
+            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Competitive
+              Programming</span>
+            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Data Structures
+              & Algorithms</span>
+            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Problem
+              Solving</span>
+            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">DSA</span>
+            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">STL</span>
+            <span
+              class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Algorithms</span>
+            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Math</span>
+            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Teamwork</span>
+          </div>
         </div>
       </div>
 

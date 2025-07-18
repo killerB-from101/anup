@@ -2,6 +2,19 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+  <style>
+    .nav-active {
+      /* border-bottom-width: 2px; */
+      /* border-color: #f472b6; */
+      /* pink-400 */
+      color: #22d3ee !important;
+      /* cyan-400 */
+    }
+
+    .nav-link {
+      transition: color 0.2s;
+    }
+  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery - Anup Barman</title>
@@ -12,17 +25,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
-<body class="text-pink-100 bg-gradient-to-br from-pink-900 via-purple-900 to-blue-900 min-h-screen">
-  <header class="bg-[#181f2a]/90 backdrop-blur-lg sticky top-0 z-50 shadow-lg border-b border-pink-400/40">
+<body class="text-slate-100 bg-gradient-to-br from-[#181f2a] via-[#232946] to-[#181f2a] min-h-screen">
+  <style>
+    /* Modal zoom-in animation */
+    #img-modal.show {
+      animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes zoomIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Masonry grid for gallery */
+    .gallery-masonry {
+      column-count: 1;
+    }
+
+    @media (min-width: 640px) {
+      .gallery-masonry {
+        column-count: 2;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .gallery-masonry {
+        column-count: 3;
+      }
+    }
+
+    .gallery-masonry img {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    .gallery-masonry img.loaded {
+      opacity: 1;
+    }
+  </style>
+  <header class="bg-[#181f2a]/90 backdrop-blur-lg sticky top-0 z-50 shadow-lg border-b border-cyan-400/60">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="index.html" class="text-2xl font-bold text-pink-200">Anup Barman</a>
       <div class="hidden md:flex space-x-8 items-center">
-        <a href="index.html" class="text-cyan-200 hover:text-cyan-400 transition-colors">Home</a>
-        <a href="index.html#about" class="text-cyan-200 hover:text-cyan-400 transition-colors">About</a>
-        <a href="achievements.html" class="text-cyan-200 hover:text-yellow-400 transition-colors">Achievements</a>
-        <a href="index.html#contact" class="text-cyan-200 hover:text-pink-400 transition-colors">Contact</a>
-        <a href="gallery.html"
-          class="text-pink-300 hover:text-pink-400 transition-colors font-bold border-b-2 border-pink-400">Gallery</a>
+        <a href="index.html" class="nav-link text-cyan-200 hover:text-cyan-400">Home</a>
+        <a href="index.html#about" class="nav-link text-cyan-200 hover:text-cyan-400">About</a>
+        <a href="index.html#contact" class="nav-link text-cyan-200 hover:text-cyan-400">Contact</a>
+        <a href="achievements.html" class="nav-link text-cyan-200 hover:text-cyan-400">Achievements</a>
+        <a href="gallery.html" class="nav-link text-cyan-200 hover:text-cyan-400 font-bold nav-active">Gallery</a>
       </div>
       <button id="mobile-menu-button" class="md:hidden">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -31,12 +89,12 @@
       </button>
     </nav>
     <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-      <a href="index.html" class="block py-2 text-cyan-200 hover:text-cyan-400">Home</a>
-      <a href="index.html#about" class="block py-2 text-cyan-200 hover:text-cyan-400">About</a>
-      <a href="achievements.html" class="block py-2 text-cyan-200 hover:text-yellow-400">Achievements</a>
-      <a href="index.html#contact" class="block py-2 text-cyan-200 hover:text-pink-400">Contact</a>
+      <a href="index.html" class="block py-2 text-cyan-200 hover:text-cyan-400 nav-link">Home</a>
+      <a href="index.html#about" class="block py-2 text-cyan-200 hover:text-cyan-400 nav-link">About</a>
+      <a href="index.html#contact" class="block py-2 text-cyan-200 hover:text-cyan-400 nav-link">Contact</a>
+      <a href="achievements.html" class="block py-2 text-cyan-200 hover:text-cyan-400 nav-link">Achievements</a>
       <a href="gallery.html"
-        class="block py-2 text-pink-300 hover:text-pink-400 font-bold border-b-2 border-pink-400">Gallery</a>
+        class="block py-2 text-cyan-200 hover:text-cyan-400 font-bold nav-link nav-active">Gallery</a>
     </div>
   </header>
   <main class="container mx-auto px-6 py-12">
@@ -44,23 +102,32 @@
       class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-yellow-300 to-cyan-300 mb-10 text-center">
       My Competitive Programming Journey
     </h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <img src="Images/Journey/DSC00228.JPG" alt="Journey 1" class="rounded-2xl shadow-lg object-cover w-full h-72" />
-      <img src="Images/Journey/DSC00880.JPG" alt="Journey 2" class="rounded-2xl shadow-lg object-cover w-full h-72" />
+    <div class="gallery-masonry">
+      <img src="Images/Journey/DSC00228.JPG" alt="Journey 1"
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
+      <img src="Images/Journey/DSC00880.JPG" alt="Journey 2"
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
       <img src="Images/Journey/IMG20241206102137.jpg" alt="Journey 3"
-        class="rounded-2xl shadow-lg object-cover w-full h-72" />
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
       <img src="Images/Journey/IMG20241206102226.jpg" alt="Journey 4"
-        class="rounded-2xl shadow-lg object-cover w-full h-72" />
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
       <img src="Images/Journey/IMG20241206102243.jpg" alt="Journey 5"
-        class="rounded-2xl shadow-lg object-cover w-full h-72" />
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
       <img src="Images/Journey/IMG20241206170118.jpg" alt="Journey 6"
-        class="rounded-2xl shadow-lg object-cover w-full h-72" />
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
       <img src="Images/Journey/IMG20241206170122.jpg" alt="Journey 7"
-        class="rounded-2xl shadow-lg object-cover w-full h-72" />
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
       <img src="Images/Journey/IMG20241206181145.jpg" alt="Journey 8"
-        class="rounded-2xl shadow-lg object-cover w-full h-72" />
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
       <img src="Images/Journey/IMG20241207190754.jpg" alt="Journey 9"
-        class="rounded-2xl shadow-lg object-cover w-full h-72" />
+        class="gallery-img rounded-2xl shadow-lg object-cover w-full cursor-zoom-in" />
+    </div>
+    <!-- Modal for zoomed image -->
+    <div id="img-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 hidden">
+      <span id="close-modal"
+        class="absolute top-6 right-8 text-4xl text-yellow-200 cursor-pointer select-none">&times;</span>
+      <img id="modal-img" src="" alt="Zoomed"
+        class="max-h-[80vh] max-w-[90vw] rounded-2xl shadow-2xl border-4 border-yellow-300 transition-transform duration-300" />
     </div>
     <p class="mt-12 text-center text-lg text-pink-200">
       Each photo is a memory from my journey in competitive programming, from
@@ -75,7 +142,87 @@
     </p>
   </footer>
   <script>
+    // Add underline to active nav link based on current URL
+    function setActiveNav() {
+      const links = document.querySelectorAll('.nav-link');
+      const path = window.location.pathname.split('/').pop();
+      const hash = window.location.hash;
+      links.forEach(link => {
+        link.classList.remove('nav-active');
+        const href = link.getAttribute('href');
+        // Home: index.html or root
+        if ((path === '' && href === 'index.html') || (path === 'index.html' && !href.includes('#'))) {
+          if (!hash && href === 'index.html') link.classList.add('nav-active');
+        }
+        // About: index.html#about
+        else if (href.endsWith('#about') && hash === '#about') {
+          link.classList.add('nav-active');
+        }
+        // Contact: index.html#contact
+        else if (href.endsWith('#contact') && hash === '#contact') {
+          link.classList.add('nav-active');
+        }
+        // Achievements and Gallery: strict match
+        else if (path === href) {
+          link.classList.add('nav-active');
+        }
+      });
+    }
+    setActiveNav();
     document.addEventListener("DOMContentLoaded", function () {
+      // Fade-in effect for images
+      const galleryImgs = Array.from(document.querySelectorAll('.gallery-img'));
+      galleryImgs.forEach(img => {
+        if (img.complete) {
+          img.classList.add('loaded');
+        } else {
+          img.addEventListener('load', () => img.classList.add('loaded'));
+        }
+      });
+
+      // Gallery zoom modal logic with navigation
+      const modal = document.getElementById('img-modal');
+      const modalImg = document.getElementById('modal-img');
+      const closeModal = document.getElementById('close-modal');
+      let currentIdx = 0;
+
+      function showModal(idx) {
+        currentIdx = idx;
+        modalImg.src = galleryImgs[idx].src;
+        modal.classList.remove('hidden');
+        modal.classList.add('show');
+        setTimeout(() => modal.classList.remove('show'), 350);
+        setTimeout(() => {
+          modal.focus();
+        }, 10);
+      }
+
+      galleryImgs.forEach((img, idx) => {
+        img.addEventListener('click', () => showModal(idx));
+      });
+      closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modalImg.src = '';
+      });
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          modalImg.src = '';
+        }
+      });
+      // Trap focus inside modal for accessibility
+      modal.setAttribute('tabindex', '-1');
+      // Keyboard navigation (only Escape to close)
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('hidden')) {
+          if (e.key === 'Escape') {
+            modal.classList.add('hidden');
+            modalImg.src = '';
+          }
+        }
+      });
+
+      // Mobile menu logic
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
       if (mobileMenuButton && mobileMenu) {
